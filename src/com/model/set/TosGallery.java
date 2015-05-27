@@ -2725,6 +2725,7 @@ public class TosGallery extends TosAbsSpinner implements GestureDetector.OnGestu
             }
         } else {
             View child = getChildAt(0);
+            assert child != null : "ø’÷∏’Î";
             offset = child.getLeft() - this.getPaddingLeft();
             offset = Math.min(offset, 0);
 

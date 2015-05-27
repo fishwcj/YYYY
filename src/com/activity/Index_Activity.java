@@ -3,7 +3,10 @@ package com.activity;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import org.json.JSONObject;
 
 import com.dao.JZ_DAO;
 import com.dao.basic.BasicDAO;
@@ -14,6 +17,8 @@ import com.model.cloud.CloudMessageManager;
 import com.model.user.Init;
 import com.yyyy.yyyy.R;
 
+
+
 //import org.apache.http.impl.conn.SingleClientConnManager;
 //import com.yyyy.yyyy.Index_Activity.MyAdapter;
 import android.annotation.SuppressLint;
@@ -23,6 +28,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.SpeechRecognizer;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
@@ -51,6 +57,18 @@ public class Index_Activity extends Activity {
 	int passed = -1;
 	Index_ContorlHelper index_ContorlHelper;
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        System.out.println("µ˜”√¡Àresult");
+        if (resultCode == RESULT_OK) {
+        	System.out.println("result == ok");
+            ArrayList<String> results = data.getStringArrayListExtra(SpeechRecognizer.RESULTS_RECOGNITION);
+            ((JZ_Activity) JZ_Activity.jzActivity).onResults(data.getExtras());
+            System.out.println(results.toString());
+        }
+    }
+ 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

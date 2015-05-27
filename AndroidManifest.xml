@@ -25,11 +25,14 @@
     </uses-permission>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
     </uses-permission>
+        <uses-permission android:name="android.permission.WRITE_SETTINGS" >
+    </uses-permission>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
     </uses-permission>
     <uses-permission android:name="android.permission.READ_LOGS" >
     </uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -100,6 +103,31 @@
         <activity
             android:name="com.activity.KeyBoard"
             android:theme="@style/MyDialogStyleBottom" />
+        <!-- begin: baidu speech sdk -->
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="8dSCoby5xKQS7YqOYZNpwvsn" />
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="IEQWc1qeGteir8dq7MkswcgU5XxiuDFC" />
+
+        <service
+            android:name="com.baidu.speech.VoiceRecognitionService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.baidu.voicerecognition.android.ui.BaiduASRDigitalDialog"
+            android:configChanges="orientation|keyboardHidden|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="com.baidu.action.RECOGNIZE_SPEECH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- end : baidu speech sdk -->
 
         <service
             android:name="com.baidu.location.f"

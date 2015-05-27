@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Add_Activity extends Activity {
-	private EditText targetname;
+	private EditText targetname;//Ä¿±êÃû×Ö
 	private EditText targettime;
 	private EditText targetcontent;
 	private TextView targetok;
