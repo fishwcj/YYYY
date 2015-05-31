@@ -14,7 +14,7 @@ public class GetNowDate{
 
 	@SuppressLint("SimpleDateFormat")
 
-	public String getNowDate(String formString) {
+	public static String getNowDate(String formString) {
 		// TODO Auto-generated method stub
 		String currentTime = "";
 		SimpleDateFormat format = new SimpleDateFormat(formString);

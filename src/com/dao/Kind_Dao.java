@@ -1,7 +1,6 @@
 package com.dao;
 
 import com.activity.Index_Activity;
-import com.activity.JZ_Activity;
 import com.dao.basic.SQLString;
 
 import android.database.Cursor;

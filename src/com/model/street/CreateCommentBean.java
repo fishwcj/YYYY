@@ -25,7 +25,7 @@ public class CreateCommentBean {
 	}
 
 	public String getTime() {
-		String time = (new GetNowDate()).getNowDate("yyyy-MM-dd hh:mm:ss");
+		String time = GetNowDate.getNowDate("yyyy-MM-dd hh:mm:ss");
 		return time;
 	}
 

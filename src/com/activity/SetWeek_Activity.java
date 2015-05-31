@@ -1,5 +1,6 @@
 package com.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -7,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.model.set.TosAdapterView;
 import com.model.set.TosGallery;
 import com.model.set.Utils;
@@ -22,7 +22,8 @@ public class SetWeek_Activity extends Activity {
 
     private WheelView mWeek_WheelView = null; 
     private TextView mTextView = null;
-    private View mDecorView = null;
+    @SuppressWarnings("unused")
+	private View mDecorView = null;
     private WeekAdapter weekAdapter;
     
     private TosAdapterView.OnItemSelectedListener mListener = new TosAdapterView.OnItemSelectedListener() {
@@ -82,7 +83,8 @@ public class SetWeek_Activity extends Activity {
     
     
 
-    private void formatData() {
+    @SuppressLint("DefaultLocale")
+	private void formatData() {
 
         int pos = mWeek_WheelView.getSelectedItemPosition();
         String text = String.format("%d", pos);

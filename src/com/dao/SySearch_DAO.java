@@ -121,7 +121,7 @@ public class SySearch_DAO {
 	 */
 	@SuppressLint("SimpleDateFormat")
 	public void updateTime(){
-		String currenString = (new GetNowDate()).getNowDate("yyyy-MM-dd hh:mm:ss");
+		String currenString = GetNowDate.getNowDate("yyyy-MM-dd hh:mm:ss");
 		System.out.println("现在更新同步时间" + currenString);
 		
 		sql = SQLString.getUpdateTime_Sy(currenString);

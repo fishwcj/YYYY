@@ -162,7 +162,8 @@ public class WheelView extends TosGallery {
      * 
      * @param canvas
      */
-    private void drawCenterRect(Canvas canvas) {
+    @SuppressWarnings("unused")
+	private void drawCenterRect(Canvas canvas) {
         if (null != mSelectorDrawable) {
             mSelectorDrawable.setBounds(mSelectorBound);
             mSelectorDrawable.draw(canvas);
@@ -174,7 +175,8 @@ public class WheelView extends TosGallery {
      * 
      * @param canvas
      */
-    private void drawShadows(Canvas canvas) {
+    @SuppressWarnings("unused")
+	private void drawShadows(Canvas canvas) {
         int height = (int) (2.0 * mSelectorBound.height());
         mTopShadow.setBounds(0, 0, getWidth(), height);
         mTopShadow.draw(canvas);

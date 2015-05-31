@@ -6,13 +6,13 @@
     <color name="yellow1">#EECFA1</color>
     <!-- 浅黄色 -->
     <color name="b8">#1d953f</color>
-    <color name="b7">#45b97c</color>
-    <color name="b6">#a3cf62</color>
-    <color name="b5">#7fb80e</color>
-    <color name="b4">#b2d235</color>
-    <color name="b3">#faa755</color>
-    <color name="b2">#f58220</color>
-    <color name="b1">#d71345</color>
+    <color name="b7">#cc3333</color>
+    <color name="b6">#cc6600</color>
+    <color name="b5">#ff9900</color>
+    <color name="b4">#ffcc00</color>
+    <color name="b3">#99cc33</color>
+    <color name="b2">#669933</color>
+    <color name="b1">#009966</color>
     <color name="b0">#ef4136</color>
     <color name="be">#aa2116</color>
     <color name="q">#426ab3</color>

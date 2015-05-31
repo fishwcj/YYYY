@@ -162,10 +162,10 @@ public class LineChart implements Chart {
 					.findViewById(R.id.LineView);
 			if (lineViewLayout != null) {
 				lineViewLayout.removeAllViews();// 先清除原来的图
+				LayoutParams show = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);// 确定
+				// 画布大小
+				lineViewLayout.addView(lineView, show);
 			}
-			LayoutParams show = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);// 确定
-			// 画布大小
-			lineViewLayout.addView(lineView, show);
 		}
 	}
 }

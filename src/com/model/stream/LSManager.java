@@ -160,7 +160,7 @@ public class LSManager {
 		linearLayoutChild = new LinearLayout[number][2];
 		TextView[][] textView = new TextView[number][2];
 		Drawable drawble = Stream_Activity.streamActivity.getResources()
-				.getDrawable(R.drawable.stream);
+				.getDrawable(R.drawable.ls);
 
 		for (i = number - 1; i >= 0; i--) {
 			textView[i][0] = new TextView(Stream_Activity.streamActivity);

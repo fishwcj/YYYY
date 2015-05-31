@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import android.database.Cursor;
 
 import com.activity.Index_Activity;
-import com.dao.basic.BasicDAO;
 import com.dao.basic.SQLString;
 
 

@@ -16,6 +16,7 @@
 
 package com.model.set;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -35,7 +36,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Transformation;
 import android.widget.Scroller;
-
 import com.yyyy.yyyy.R;
 
 /**
@@ -1760,7 +1760,8 @@ public class TosGallery extends TosAbsSpinner implements GestureDetector.OnGestu
         return childLeft;
     }
 
-    @Override
+    @SuppressLint("ClickableViewAccessibility")
+	@Override
     public boolean onTouchEvent(MotionEvent event) {
 
         // Give everything to the gesture detector
@@ -2062,7 +2063,8 @@ public class TosGallery extends TosAbsSpinner implements GestureDetector.OnGestu
         return handled;
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         // Gallery steals all key events
         return event.dispatch(this);
@@ -2716,6 +2718,7 @@ public class TosGallery extends TosAbsSpinner implements GestureDetector.OnGestu
 
         if (toLeft) {
             View child = getChildAt(getChildCount() - 1);
+            assert child != null : "ø’÷∏’Î";
             offset = child.getRight() - this.getRight() + this.getPaddingRight();
             offset = Math.max(offset, 0);
 

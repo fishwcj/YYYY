@@ -116,7 +116,7 @@
         android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_gravity="right"
-        android:background="@drawable/location"
+        android:background="@drawable/location_1"
         android:textSize="30sp" />
 
     <TextView

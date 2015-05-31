@@ -12,8 +12,7 @@ public class YS_DAO {
 	private String currentString;
 	@SuppressLint("SimpleDateFormat")
 	public YS_DAO() {
-		GetNowDate getNowDate = new GetNowDate();
-		currentString = getNowDate.getNowDate("yyyy-MM");		// 获得当前日期
+		currentString = GetNowDate.getNowDate("yyyy-MM");		// 获得当前日期
 		System.out.println("YS里面获得的日期是:" + currentString);
 	}
 

@@ -19,8 +19,7 @@ import com.yyyy.yyyy.R;
 
 @SuppressWarnings({ "unused" })
 public class Index_ContorlHelper {
-	private String currentString;// 当前日期
-	Context context;
+	private String now_date;// 当前日期
 	LinearLayout[][] linearLayoutChild;
 	int i = 0;
 
@@ -32,11 +31,7 @@ public class Index_ContorlHelper {
 	 */
 	@SuppressLint("SimpleDateFormat")
 	public Index_ContorlHelper(Context context) {
-		this.context = context;
-		// 构造当前日期 xxxx-xx
-		java.util.Date currentDate = new java.util.Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
-		this.currentString = format.format(currentDate);
+		this.now_date = GetNowDate.getNowDate("yyyy-MM");
 	}
 
 	/**
@@ -64,10 +59,6 @@ public class Index_ContorlHelper {
 			/**
 			 * 画消费分析图
 			 */
-			
-			//获取当前日期
-			GetNowDate nowDate = new GetNowDate();
-			String now_date = nowDate.getNowDate("yyyy-MM");
 			PieChart pie = new PieChart(now_date);
 			Draw_chart.draw_Chart(pie);
 			LineChart line= new LineChart(now_date);
@@ -86,11 +77,10 @@ public class Index_ContorlHelper {
 				.findViewById(R.id.lin);
 		// 滑动到流水界面，更新
 		if (current == 1) {
-			LS_DAO ls_DataBaseHelper = new LS_DAO(
-					context);
+			LS_DAO ls_DataBaseHelper = new LS_DAO();
 			LSManager lsManager = new LSManager(ls_DataBaseHelper);
 			
-			String[] jString = currentString.split("-");
+			String[] jString = now_date.split("-");
 			int number = Integer.parseInt(jString[1]);// 得到当前月数
 			System.out.println("当前月数：" + number);
 
