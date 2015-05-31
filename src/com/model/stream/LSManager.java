@@ -42,15 +42,13 @@ public class LSManager {
 		int number = cursor.getCount();
 		// 动态生成xml布局
 		LinearLayout.LayoutParams LP_FW = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.MATCH_PARENT);
+				LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 		LP_FW.weight = 1;
 		System.out.println("日期是" + date);
 		if (number > 0) {
 			// linearLayoutChild样式
 			LinearLayout.LayoutParams LP_FW1 = new LinearLayout.LayoutParams(
-					LinearLayout.LayoutParams.MATCH_PARENT,
-					LinearLayout.LayoutParams.WRAP_CONTENT);
+					LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 			LP_FW1.height = 100;
 			LP_FW1.topMargin = 1;
 			Activity streamActivity = Stream_Activity.streamActivity;
@@ -64,8 +62,7 @@ public class LSManager {
 			String style; // 文字html处理
 			int i = 0; // i做为TextView数组的索引
 			// 得到linearLayout的样式
-			Drawable drawble = streamActivity.getResources().getDrawable(
-					R.drawable.stream_textview);
+			Drawable drawble = streamActivity.getResources().getDrawable(R.drawable.stream_textview);
 			while (cursor.moveToNext()) {
 				for (int j = 0; j < 3; j++)
 					textView[i][j] = new TextView(streamActivity);
@@ -73,14 +70,11 @@ public class LSManager {
 				linearLayoutChild[i].setBackground(drawble);
 				linearLayoutChild[i].setLayoutParams(LP_FW1);
 				// 从游标获得结果
-				inOrOutString = cursor.getString(cursor
-						.getColumnIndex("inorout"));
+				inOrOutString = cursor.getString(cursor.getColumnIndex("inorout"));
 				if (inOrOutString.equals("0"))
-					consumeString = "-"
-							+ cursor.getString(cursor.getColumnIndex("consume"));
+					consumeString = "-" + cursor.getString(cursor.getColumnIndex("consume"));
 				else {
-					consumeString = "+"
-							+ cursor.getString(cursor.getColumnIndex("consume"));
+					consumeString = "+" + cursor.getString(cursor.getColumnIndex("consume"));
 				}
 				kindString = cursor.getString(cursor.getColumnIndex("kind"));
 				dateString = cursor.getString(cursor.getColumnIndex("date"));
@@ -96,16 +90,14 @@ public class LSManager {
 				linearLayoutChild[i].addView(textView[i][0]);
 
 				// 设置第二个textView:显示消费类别
-				style = "<span><font color=\"#EE5C42\"><big>" + kindString
-						+ "</big></font></span>";
+				style = "<span><font color=\"#EE5C42\"><big>" + kindString + "</big></font></span>";
 				textView[i][1].setText(Html.fromHtml(style));
 				textView[i][1].setLayoutParams(LP_FW);
 				textView[i][1].setGravity(Gravity.CENTER);
 				linearLayoutChild[i].addView(textView[i][1]);
 
 				// 设置第三个textView:显示消费金额
-				style = "<span><font><big>" + consumeString
-						+ "</big>元</font></span>";
+				style = "<span><font><big>" + consumeString + "</big>元</font></span>";
 				textView[i][2].setText(Html.fromHtml(style));
 				textView[i][2].setLayoutParams(LP_FW);
 				textView[i][2].setGravity(Gravity.CENTER);
@@ -136,42 +128,34 @@ public class LSManager {
 	 */
 	@SuppressLint({ "SimpleDateFormat", "NewApi" })
 	public void getFrame(int number) {
-		LinearLayout linearLayout = (LinearLayout) Stream_Activity.streamActivity
-				.findViewById(R.id.lin);
+		LinearLayout linearLayout = (LinearLayout) Stream_Activity.streamActivity.findViewById(R.id.lin);
 		linearLayout.removeAllViews();// 先清屏
 
 		// textview样式
 		LinearLayout.LayoutParams LP_FW = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.MATCH_PARENT);
+				LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 		LP_FW.weight = 1;
 
 		// linearLayoutChild样式
 		LinearLayout.LayoutParams LP_FW1 = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.WRAP_CONTENT);
+				LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 		LP_FW1.height = 80;
 		LP_FW1.topMargin = 1;
 
 		// linearLayoutChild[i][0]样式
 		LinearLayout.LayoutParams LP_FW2 = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.WRAP_CONTENT);
+				LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 		linearLayoutChild = new LinearLayout[number][2];
 		TextView[][] textView = new TextView[number][2];
-		Drawable drawble = Stream_Activity.streamActivity.getResources()
-				.getDrawable(R.drawable.ls);
+		Drawable drawble = Stream_Activity.streamActivity.getResources().getDrawable(R.drawable.ls);
 
 		for (i = number - 1; i >= 0; i--) {
 			textView[i][0] = new TextView(Stream_Activity.streamActivity);
 			textView[i][1] = new TextView(Stream_Activity.streamActivity);
-			linearLayoutChild[i][0] = new LinearLayout(
-					Stream_Activity.streamActivity);
+			linearLayoutChild[i][0] = new LinearLayout(Stream_Activity.streamActivity);
 			linearLayoutChild[i][0].setBackground(drawble);
-			linearLayoutChild[i][1] = new LinearLayout(
-					Stream_Activity.streamActivity);
-			String style = "<font color=\"#9ACD32\"><big><big>" + (i + 1)
-					+ "月</big></big></font>";
+			linearLayoutChild[i][1] = new LinearLayout(Stream_Activity.streamActivity);
+			String style = "<font color=\"#9ACD32\"><big><big>" + (i + 1) + "月</big></big></font>";
 			textView[i][0].setText(Html.fromHtml(style));
 			textView[i][0].setLayoutParams(LP_FW);
 			linearLayoutChild[i][0].addView(textView[i][0]);
@@ -184,43 +168,36 @@ public class LSManager {
 			linearLayoutChild[i][0].setId(i);// 用id标识点击的位置
 			linearLayoutChild[i][1].setId(0);
 			linearLayoutChild[i][0].setClickable(true);
-			linearLayoutChild[i][0]
-					.setOnClickListener(new View.OnClickListener() {
+			linearLayoutChild[i][0].setOnClickListener(new View.OnClickListener() {
 
-						@Override
-						public void onClick(View v) {
-							// TODO Auto-generated method stub
-							int location = v.getId();
-							int month = location + 1;
-							TextView textView = (TextView) Stream_Activity.streamActivity
-									.findViewById(R.id.thisyear);
-							// 构造时间
-							String year = (String) textView.getText();
-							String dateString = year + "-" + month + "-" + "01";
-							SimpleDateFormat format = new SimpleDateFormat(
-									"yyyy-MM-dd");
-							java.util.Date date;
-							try {
-								date = format.parse(dateString);
-								dateString = format.format(date);
-								LSManager lsManager = new LSManager(
-										ls_DataBaseHelper);
-								if (linearLayoutChild[location][1].getId() == 0) {
-									lsManager.updateStreamLayout(
-											linearLayoutChild[location][1],
-											dateString);
-									linearLayoutChild[location][1].setId(1);
-								} else {
-									linearLayoutChild[location][1]
-											.removeAllViews();
-									linearLayoutChild[location][1].setId(0);
-								}
-							} catch (ParseException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					int location = v.getId();
+					int month = location + 1;
+					TextView textView = (TextView) Stream_Activity.streamActivity.findViewById(R.id.thisyear);
+					// 构造时间
+					String year = (String) textView.getText();
+					String dateString = year + "-" + month + "-" + "01";
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+					java.util.Date date;
+					try {
+						date = format.parse(dateString);
+						dateString = format.format(date);
+						LSManager lsManager = new LSManager(ls_DataBaseHelper);
+						if (linearLayoutChild[location][1].getId() == 0) {
+							lsManager.updateStreamLayout(linearLayoutChild[location][1], dateString);
+							linearLayoutChild[location][1].setId(1);
+						} else {
+							linearLayoutChild[location][1].removeAllViews();
+							linearLayoutChild[location][1].setId(0);
 						}
-					});
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
 			linearLayout.addView(linearLayoutChild[i][0]);
 			linearLayout.addView(linearLayoutChild[i][1]);
 		}
