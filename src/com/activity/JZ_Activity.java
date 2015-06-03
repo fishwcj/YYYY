@@ -48,7 +48,6 @@ public class JZ_Activity extends FragmentActivity implements RecognitionListener
 	public static TextView budgetRemain;
 	private TextView kind;
 	public TextView consume;
-	private TextView setting;
 	private Button number_1;
 	private Button number_2;
 	private Button number_3;
@@ -138,7 +137,6 @@ public class JZ_Activity extends FragmentActivity implements RecognitionListener
 		consumed = (TextView) this.findViewById(R.id.comsumed);
 		linearLayout = (LinearLayout) this.findViewById(R.id.background);
 		zyj = (TextView) this.findViewById(R.id.zyj);
-		setting = (TextView) this.findViewById(R.id.setting);
 		zq = (TextView) this.findViewById(R.id.zq);
 		jd = (TextView) this.findViewById(R.id.jd);
 		// 测试按钮
@@ -237,19 +235,6 @@ public class JZ_Activity extends FragmentActivity implements RecognitionListener
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(JZ_Activity.this, Target_Activity.class);
 				JZ_Activity.this.startActivity(intent);
-			}
-		});
-
-		/**
-		 * 设置按钮事件
-		 */
-		setting.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(jzActivity, User_Activity.class);
-				startActivity(intent);
 			}
 		});
 

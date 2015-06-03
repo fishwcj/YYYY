@@ -29,5 +29,7 @@
     <!-- 红色 -->
     <color name="gainsboro">#DCDCDC</color>
     <!-- 淡灰色 -->
+    <color name = "lightblue">#00aeef</color>
+    
 
 </resources>

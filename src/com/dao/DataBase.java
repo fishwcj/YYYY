@@ -215,9 +215,9 @@ public class DataBase extends SQLiteOpenHelper {
 		/*
 		 * 借贷管理表
 		 * @author LLL
-		 * userId 借贷者id,kind 借出还是借入,money 借贷的钱数,return_time 归还日期,remark 备注,loaction 定位地点
+		 * userId 借贷者name,kind 借出还是借入,money 借贷的钱数,return_time 归还日期,remark 备注,loaction 定位地点
 		 */
-		sql = "create table borrow_manager(userId varchar(10), kind integer,money float,return_time datetime,remark varchar(100),location varchar(100))";
+		sql = "create table borrow_manager(id int,name varchar(10), kind int,money float,borrow_time datetime,return_time datetime,remark varchar(100),location varchar(100))";
 		db.execSQL(sql);
 	}
 

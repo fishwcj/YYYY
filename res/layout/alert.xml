@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -16,11 +15,17 @@
 
         <TextView
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/l" />
+            android:text="@string/l"
+            android:textColor="#000000" />
         <!-- 下大部分 -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D1D1D1" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -45,85 +50,129 @@
                         android:id="@+id/spjs"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="@string/spjs" />
+                        android:text="@string/spjs"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#D1D1D1" />
 
                     <TextView
                         android:id="@+id/yfsp"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="@string/yfsp" />
+                        android:text="@string/yfsp"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#D1D1D1" />
 
                     <TextView
                         android:id="@+id/cxjt"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="@string/cxjt" />
+                        android:text="@string/cxjt"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#D1D1D1" />
 
                     <TextView
                         android:id="@+id/jjxf"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="@string/jjxf" />
+                        android:text="@string/jjxf"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#D1D1D1" />
 
                     <TextView
                         android:id="@+id/xxjx"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="@string/xxjx" />
+                        android:text="@string/xxjx"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#D1D1D1" />
 
                     <TextView
                         android:id="@+id/xxyl"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="@string/xxyl" />
+                        android:text="@string/xxyl"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#D1D1D1" />
 
                     <TextView
                         android:id="@+id/rjjw"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="@string/rjjw" />
+                        android:text="@string/rjjw"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#D1D1D1" />
 
                     <TextView
                         android:id="@+id/ylbj"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="@string/ylbj" />
+                        android:text="@string/ylbj"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#D1D1D1" />
 
                     <TextView
                         android:id="@+id/qtzx"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="@string/qtzx" />
+                        android:text="@string/qtzx"
+                        android:textColor="#000000" />
                 </LinearLayout>
             </ScrollView>
 
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#D1D1D1" />
             <!-- 二级菜单 -->
 
             <ScrollView
@@ -148,10 +197,15 @@
                         android:id="@+id/zdy"
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@drawable/blackbutton"
                         android:clickable="true"
                         android:gravity="center"
-                        android:text="自定义" />
+                        android:text="自定义"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#D1D1D1" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

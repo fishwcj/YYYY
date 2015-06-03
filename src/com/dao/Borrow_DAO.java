@@ -1,3 +1,4 @@
+
 package com.dao;
 
 import android.database.Cursor;
@@ -13,12 +14,12 @@ public class Borrow_DAO {
 	 * 根据类别获取总和
 	 * @return
 	 */
-	public Float getTotal(int kind){
+	public static Float getTotal(int kind){
 		String sql = SQLString.getTotal(kind);
 		Float total = Index_Activity.basicDAO.selectFloat(sql);
 		return total;
 	}
-	public Cursor getList(int kind){
+	public static Cursor getList(int kind){
 		String sql = SQLString.getList(kind);
 		Cursor cursor = (Cursor)Index_Activity.basicDAO.selectCursor(sql);
 		return cursor;
@@ -26,8 +27,34 @@ public class Borrow_DAO {
 	/**
 	 * 将添加的借贷item写入到数据库
 	 */
-//	public void insertBorrowItem(){
-//		String sql = SQLString.InsertBorrowItem();
-//		dao.insert(sql);
-//	}
+	public static void insertBorrowItem( int id,String name,int kind,float money,String borrow_date,String return_date,String describe,String location){
+		String sql = SQLString.InsertBorrowItem(id,name,kind,money,borrow_date,return_date,describe,location);
+		Index_Activity.basicDAO.insert(sql);
+	}/*
+	
+	*获取所有信息
+	*/
+	public static Cursor getAllMsg(int id){
+		Cursor cursor;
+		String sql = SQLString.getAllMsgById(id);
+		cursor = (Cursor)Index_Activity.basicDAO.selectCursor(sql);
+		return cursor;
+	}
+	/*
+	 * 
+	 * 获取共有多少item
+	 */
+	public static int getItemCount(){
+		int count = 0;
+		Cursor cursor;
+		String sql = SQLString.getItemCount();
+		cursor = (Cursor)Index_Activity.basicDAO.selectCursor(sql);
+		while (cursor.moveToNext()){
+			count  = cursor.getInt(cursor.getColumnIndex("count"));
+		}
+		return count;
+	}
 }
+
+
+

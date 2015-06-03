@@ -3,31 +3,34 @@ package com.model.stream;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 //import android.R.integer;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.text.Html;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.activity.Stream_Activity;
 import com.dao.LS_DAO;
+import com.dao.YS_DAO;
 import com.yyyy.yyyy.R;
 
 public class LSManager {
 	private LS_DAO ls_DataBaseHelper;
-	LinearLayout[][] linearLayoutChild;
-	int i = 0;
+	private LayoutInflater inflater;
+	private LinearLayout[][] linearLayoutChild;
+	private int i = 0;
+	private String dateOfday = "";
 
 	public LSManager(LS_DAO ls_DataBaseHelper) {
 		// TODO Auto-generated constructor stub
 		this.ls_DataBaseHelper = ls_DataBaseHelper;
+		this.inflater = LayoutInflater.from(Stream_Activity.streamActivity);
 	}
 
 	/**
@@ -35,7 +38,7 @@ public class LSManager {
 	 * 
 	 * @param linearLayout
 	 */
-	@SuppressLint("NewApi")
+	@SuppressLint({ "NewApi", "InflateParams" })
 	public void updateStreamLayout(LinearLayout linearLayout, String date) {
 		// 查询流水返回游标
 		Cursor cursor = ls_DataBaseHelper.selectAllAccount(date);
@@ -51,25 +54,22 @@ public class LSManager {
 					LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 			LP_FW1.height = 100;
 			LP_FW1.topMargin = 1;
-			Activity streamActivity = Stream_Activity.streamActivity;
 			LinearLayout[] linearLayoutChild = new LinearLayout[number];
-			TextView[][] textView = new TextView[number][3];
 			String consumeString; // 消费
 			String kindString; // 消费类别
 			String dateString; // 流水时间
 			String inOrOutString; // 收入支出
 			String[] dates; // 切分时间用
-			String style; // 文字html处理
 			int i = 0; // i做为TextView数组的索引
-			// 得到linearLayout的样式
-			Drawable drawble = streamActivity.getResources().getDrawable(R.drawable.stream_textview);
 			while (cursor.moveToNext()) {
 				for (int j = 0; j < 3; j++)
-					textView[i][j] = new TextView(streamActivity);
-				linearLayoutChild[i] = new LinearLayout(streamActivity);
-				linearLayoutChild[i].setBackground(drawble);
-				linearLayoutChild[i].setLayoutParams(LP_FW1);
-				// 从游标获得结果
+					linearLayoutChild[i] = (LinearLayout) inflater
+							.inflate(R.layout.streamchild_templte, null);
+
+				TextView day = (TextView) linearLayoutChild[i].findViewById(R.id.day);
+				TextView kind = (TextView) linearLayoutChild[i].findViewById(R.id.kind);
+				TextView consume = (TextView) linearLayoutChild[i].findViewById(R.id.consume);
+
 				inOrOutString = cursor.getString(cursor.getColumnIndex("inorout"));
 				if (inOrOutString.equals("0"))
 					consumeString = "-" + cursor.getString(cursor.getColumnIndex("consume"));
@@ -83,31 +83,18 @@ public class LSManager {
 				dateString = Date.valueOf(dates[0]).toString();
 				dates = dateString.split("-");
 
-				// 设置第一个textView:显示日期
-				style = "<font color=\"#2F4F4F\">" + dates[2] + "日</font>";
-				textView[i][0].setText(Html.fromHtml(style));
-				textView[i][0].setLayoutParams(LP_FW);
-				linearLayoutChild[i].addView(textView[i][0]);
-
-				// 设置第二个textView:显示消费类别
-				style = "<span><font color=\"#EE5C42\"><big>" + kindString + "</big></font></span>";
-				textView[i][1].setText(Html.fromHtml(style));
-				textView[i][1].setLayoutParams(LP_FW);
-				textView[i][1].setGravity(Gravity.CENTER);
-				linearLayoutChild[i].addView(textView[i][1]);
-
-				// 设置第三个textView:显示消费金额
-				style = "<span><font><big>" + consumeString + "</big>元</font></span>";
-				textView[i][2].setText(Html.fromHtml(style));
-				textView[i][2].setLayoutParams(LP_FW);
-				textView[i][2].setGravity(Gravity.CENTER);
-				if (inOrOutString.equals("0"))
-					textView[i][2].setTextColor(Color.RED);
-				else {
-					textView[i][2].setTextColor(0xFF9ACD32);
+				if (!dates[2].equals(dateOfday)) {
+					day.setText(dates[2]);
+					this.dateOfday = dates[2];
 				}
-				linearLayoutChild[i].addView(textView[i][2]);
-				// 将LinearLayoutChild加入到父容器
+				kind.setText(kindString);
+				consume.setText(consumeString);
+
+				if (inOrOutString.equals("0"))
+					consume.setTextColor(Color.RED);
+				else {
+					consume.setTextColor(0xFF9ACD32);
+				}
 				linearLayout.addView(linearLayoutChild[i]);
 				i++;
 			}
@@ -126,8 +113,10 @@ public class LSManager {
 	 * @param number
 	 *            月数
 	 */
-	@SuppressLint({ "SimpleDateFormat", "NewApi" })
+	@SuppressLint({ "SimpleDateFormat", "NewApi", "InflateParams", "DefaultLocale" })
 	public void getFrame(int number) {
+		SimpleDateFormat format = new SimpleDateFormat("MM-dd");
+
 		LinearLayout linearLayout = (LinearLayout) Stream_Activity.streamActivity.findViewById(R.id.lin);
 		linearLayout.removeAllViews();// 先清屏
 
@@ -142,30 +131,46 @@ public class LSManager {
 		LP_FW1.height = 80;
 		LP_FW1.topMargin = 1;
 
-		// linearLayoutChild[i][0]样式
-		LinearLayout.LayoutParams LP_FW2 = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 		linearLayoutChild = new LinearLayout[number][2];
 		TextView[][] textView = new TextView[number][2];
-		Drawable drawble = Stream_Activity.streamActivity.getResources().getDrawable(R.drawable.ls);
 
 		for (i = number - 1; i >= 0; i--) {
 			textView[i][0] = new TextView(Stream_Activity.streamActivity);
 			textView[i][1] = new TextView(Stream_Activity.streamActivity);
-			linearLayoutChild[i][0] = new LinearLayout(Stream_Activity.streamActivity);
-			linearLayoutChild[i][0].setBackground(drawble);
+			linearLayoutChild[i][0] = (LinearLayout) inflater.inflate(R.layout.stream_templet, null);
 			linearLayoutChild[i][1] = new LinearLayout(Stream_Activity.streamActivity);
-			String style = "<font color=\"#9ACD32\"><big><big>" + (i + 1) + "月</big></big></font>";
-			textView[i][0].setText(Html.fromHtml(style));
-			textView[i][0].setLayoutParams(LP_FW);
-			linearLayoutChild[i][0].addView(textView[i][0]);
-			style = "<font color=\"#9ACD32\"><big></big></font>";
-			textView[i][1].setText(Html.fromHtml(style));
-			linearLayoutChild[i][0].addView(textView[i][1]);
-			linearLayoutChild[i][0].setLayoutParams(LP_FW1);
-			linearLayoutChild[i][1].setLayoutParams(LP_FW2);
+
 			linearLayoutChild[i][1].setOrientation(LinearLayout.VERTICAL);
 			linearLayoutChild[i][0].setId(i);// 用id标识点击的位置
+
+			Calendar c = Calendar.getInstance();
+			c.add(Calendar.MONTH, 0);
+			c.set(Calendar.MONTH, i);
+			c.set(Calendar.DAY_OF_MONTH, 1);
+			String first = format.format(c.getTime());
+			first = first.replaceAll("-", ".");
+
+			Calendar ca = Calendar.getInstance();
+			ca.set(Calendar.MONTH, i);
+			ca.set(Calendar.DAY_OF_MONTH, ca.getActualMaximum(Calendar.DAY_OF_MONTH));
+			String last = format.format(ca.getTime());
+			last = last.replaceAll("-", ".");
+			String date = first + "-" + last;
+			TextView dateTextView = (TextView) linearLayoutChild[i][0].findViewById(R.id.monthfirsttolast);
+			dateTextView.setText(date);
+
+			TextView month = (TextView) linearLayoutChild[i][0].findViewById(R.id.month);
+			String monthString = String.format("%02d", i + 1);
+			month.setText(monthString);
+
+			// 查询本月余额
+			String yearAndMonth = Stream_Activity.year + "-" + String.format("%02d", (i + 1));
+			String remain = YS_DAO.read_remain(yearAndMonth);
+			if (remain != null && remain.length() > 0) {
+				TextView remainTextView = (TextView) linearLayoutChild[i][0].findViewById(R.id.monthleft);
+				remainTextView.setText(remain);
+			}
+
 			linearLayoutChild[i][1].setId(0);
 			linearLayoutChild[i][0].setClickable(true);
 			linearLayoutChild[i][0].setOnClickListener(new View.OnClickListener() {
@@ -193,7 +198,6 @@ public class LSManager {
 							linearLayoutChild[location][1].setId(0);
 						}
 					} catch (ParseException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}

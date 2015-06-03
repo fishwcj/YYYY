@@ -40,9 +40,15 @@ public class YS_DAO {
 		return totalString;
 	}
 
+	public static String read_remain(String currentString){
+		String remain = "哦！数据库宕机了...";
+		String sql = SQLString.getRemain(currentString);
+		remain  =Index_Activity.basicDAO.selectString(sql);
+		return remain;
+	}
 	/**
 	 * 如果没有该类预算则插入，如果有则更新
-	 * 
+	 *  
 	 * @param consum_mony
 	 *            预算金额
 	 * @param kind

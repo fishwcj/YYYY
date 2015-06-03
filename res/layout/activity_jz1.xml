@@ -25,31 +25,20 @@
 
             <TextView
                 android:id="@+id/budgetRemain"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:clickable="true"
-                android:gravity="center_horizontal"
+                android:gravity="center_horizontal|right"
                 android:text="@string/remain_this_month"
                 android:textColor="#FFFFFF"
                 android:textSize="60sp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:text="@string/mony"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:id="@+id/setting"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/person1_03"
-                android:gravity="center_horizontal"
-                android:clickable="true"
-                android:textSize="15sp"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
@@ -62,22 +51,16 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
-                android:layout_weight="2"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/remain"
                 android:textColor="#DBDBDB"
                 android:textSize="15sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="#FFFFFF" />
@@ -90,15 +73,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center_vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:text="@string/d"
-                android:textColor="#DBDBDB"
-                android:textSize="11sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -123,8 +97,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/k"
-                android:textColor="#BABABA"
-                android:textSize="9sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="11sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -132,8 +106,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/m"
-                android:textColor="#BABABA"
-                android:textSize="9sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="11sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -141,8 +115,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/y"
-                android:textColor="#BABABA"
-                android:textSize="9sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="11sp" />
         </LinearLayout>
 
         <!-- 上部行5 -->
@@ -241,6 +215,7 @@
                     android:background="#EEE9E9"
                     android:gravity="right"
                     android:textColor="#FF0000"
+                    android:drawableLeft="@drawable/speek"
                     android:textSize="40sp" />
             </LinearLayout>
         </LinearLayout>

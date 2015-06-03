@@ -3,44 +3,54 @@
     android:id="@+id/stream"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EECFA1"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:background="#436EEE">
 
         <TextView
             android:id="@+id/lastyear"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/lastyear"
-            android:textColor="#d71345"
+            android:textColor="#FFFFFF"
             android:clickable="true"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/thisyear"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.6"
-            android:gravity="center"
+            android:layout_weight="2"
+            android:gravity="right|center_vertical"
             android:text="2015"
-            android:textColor="#d71345"
-            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             android:textStyle="bold" />
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="年流水"
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
 
         <TextView
             android:id="@+id/nextyear"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:clickable="false"
-            android:textColor="#d71345"
+            android:textColor="#FFFFFF"
             android:textSize="15sp" />
     </LinearLayout>
 

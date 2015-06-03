@@ -59,7 +59,6 @@ public class Index_Activity extends FragmentActivity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_OK) {
-//			ArrayList<String> results = data.getStringArrayListExtra(SpeechRecognizer.RESULTS_RECOGNITION);
 			((JZ_Activity) JZ_Activity.jzActivity).onResults(data.getExtras());
 		}
 	}
@@ -114,15 +113,15 @@ public class Index_Activity extends FragmentActivity {
 		Intent intent_jzIntent = new Intent(context, JZ_Activity.class);
 		intent_jzIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		views.add(getView("JZ_Activity", intent_jzIntent));
-
-		Intent intent_streamIntent = new Intent(context, Stream_Activity.class);
-		intent_streamIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		View streamView = getView("Stream_Activity", intent_streamIntent);
-		views.add(streamView);
-
-		Intent intent_countIntent = new Intent(context, Count_Activity.class);
-		intent_countIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		views.add(getView("Count_Activity", intent_countIntent));
+//
+//		Intent intent_streamIntent = new Intent(context, Stream_Activity.class);
+//		intent_streamIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//		View streamView = getView("Stream_Activity", intent_streamIntent);
+//		views.add(streamView);
+//
+//		Intent intent_countIntent = new Intent(context, Count_Activity.class);
+//		intent_countIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//		views.add(getView("Count_Activity", intent_countIntent));
 
 		// 第一次启动更新记账界面预算显示
 		JZ_DAO jz_DataBaseHelper = new JZ_DAO();
