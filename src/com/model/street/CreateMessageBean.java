@@ -3,6 +3,7 @@ package com.model.street;
 import android.annotation.SuppressLint;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.bean.StreetMessageBean;
@@ -13,7 +14,7 @@ public class CreateMessageBean {
 	public CreateMessageBean() {
 	}
 	
-	public StreetMessageBean create(String content,String tag, float price,String adrs) {
+	public StreetMessageBean create(String content,String tag, float price,String adrs,ArrayList<byte[]> list) {
 		StreetMessageBean messageBean = new StreetMessageBean();
 		messageBean.setMessage(content);
 		messageBean.setUserName(getUserName());
@@ -22,6 +23,7 @@ public class CreateMessageBean {
 		messageBean.setTag(tag);
 		messageBean.setPrice(price);
 		messageBean.setAddress(adrs);
+		messageBean.setImglist(list);
 		return messageBean;
 	}
 

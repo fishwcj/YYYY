@@ -1,5 +1,11 @@
 package com.activity;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -7,7 +13,7 @@ import java.util.List;
 
 import com.dao.JZ_DAO;
 import com.dao.basic.BasicDAO;
-import com.inteface.IBasicDAO;
+import com.dao.basic.IBasicDAO;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.logic.BackgroundColor;
 import com.logic.Index_ContorlHelper;
@@ -15,6 +21,13 @@ import com.logic.SampleListFragment;
 import com.model.cloud.CloudMessageManager;
 import com.model.user.Init;
 import com.yyyy.yyyy.R;
+
+
+
+
+
+
+
 
 
 import android.annotation.SuppressLint;
@@ -123,6 +136,17 @@ public class Index_Activity extends FragmentActivity {
 //		intent_countIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //		views.add(getView("Count_Activity", intent_countIntent));
 
+//		try {
+//			OutputStream os = Index_Activity.this.openFileOutput("test.txt", MODE_PRIVATE);
+//			OutputStreamWriter writer = new OutputStreamWriter(os);
+//			writer.write("hihi");
+//			os.close();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//			System.out.println("输出异常");
+//		}
+		
 		// 第一次启动更新记账界面预算显示
 		JZ_DAO jz_DataBaseHelper = new JZ_DAO();
 		jz_DataBaseHelper.updateBudgetRemain();

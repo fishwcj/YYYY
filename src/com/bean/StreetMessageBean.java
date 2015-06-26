@@ -1,6 +1,7 @@
 package com.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class StreetMessageBean implements Serializable  {
 	/**
@@ -16,6 +17,15 @@ public class StreetMessageBean implements Serializable  {
 	private String tag;	//±Í«©
 	private float price;
 	private String userID;
+	private ArrayList<byte[]> imglist;
+
+	public ArrayList<byte[]> getImglist() {
+		return imglist;
+	}
+
+	public void setImglist(ArrayList<byte[]> imglist) {
+		this.imglist = imglist;
+	}
 
 	public String getUserID() {
 		return userID;

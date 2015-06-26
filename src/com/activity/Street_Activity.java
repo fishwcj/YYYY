@@ -159,7 +159,7 @@ public class Street_Activity extends FragmentActivity {
 		}
 	};
 
-	public class ConnectThread implements Runnable {
+	private class ConnectThread implements Runnable {
 		@Override
 		public void run() {
 			StreetConnecter connecter = new StreetConnecter();

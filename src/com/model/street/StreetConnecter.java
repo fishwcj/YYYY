@@ -1,7 +1,7 @@
 package com.model.street;
 
 import com.bean.SrStreetBeanList;
-import com.inteface.INetWork;
+import com.mnitools.INetWork;
 import com.mnitools.NetWorkCommunicate;
 
 //import android.os.StrictMode;

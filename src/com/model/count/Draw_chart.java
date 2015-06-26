@@ -1,6 +1,5 @@
 package com.model.count;
 
-import com.inteface.Chart;
 
 public class Draw_chart {
 	/**

@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.activity.JZ_Activity;
 import com.bean.CloudData;
 import com.dao.SySearch_DAO;
-import com.inteface.INetWork;
+import com.mnitools.INetWork;
 import com.mnitools.NetWorkCommunicate;
 import com.model.user.IsLogin;
 

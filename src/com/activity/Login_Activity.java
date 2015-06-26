@@ -30,26 +30,23 @@ public class Login_Activity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				final ProgressDialog pd = ProgressDialog.show(
-						Login_Activity.this, "登录", "登录中，请稍后……");
+				final ProgressDialog pd = ProgressDialog.show(Login_Activity.this, "登录", "登录中，请稍后……");
 				String idString = id.getText().toString();
 				String passwordString = password.getText().toString();
 				UserLogin userLogin = new UserLogin();
-				
+
 				/*
-				 * 1、检测密码
-				 * 2、获得数据
-				 * 3、初始化用户
+				 * 1、检测密码 2、获得数据 3、初始化用户
 				 */
 				if (userLogin.passwordIsOK(idString, passwordString)) {
 					pd.dismiss();
-					final ProgressDialog _pd = ProgressDialog.show(
-							Login_Activity.this, "登录成功", "用户数据初始化，请稍后……");
+					final ProgressDialog _pd = ProgressDialog.show(Login_Activity.this, "登录成功",
+							"用户数据初始化，请稍后……");
 					userLogin.getData();
 					if (userLogin.initData()) {
 						_pd.dismiss();
-						Intent intent = new Intent(Login_Activity.this,
-								Index_Activity.class);
+						Intent intent = new Intent(Login_Activity.this, Index_Activity.class);
+						UserLogin._basicDAO.closeDB();
 						startActivity(intent);
 					}
 				}

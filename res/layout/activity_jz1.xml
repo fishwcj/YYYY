@@ -171,6 +171,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
+            android:baselineAligned="false"
             android:orientation="horizontal" >
 
             <LinearLayout
@@ -204,34 +205,59 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/consume"
-                    android:layout_width="match_parent"
+                    android:id="@+id/voice"
+                    android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:background="#EEE9E9"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/speek" />
+
+                <TextView
+                    android:id="@+id/consume"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="5"
+                    android:background="#EEE9E9"
                     android:gravity="right"
                     android:textColor="#FF0000"
-                    android:drawableLeft="@drawable/speek"
                     android:textSize="40sp" />
             </LinearLayout>
         </LinearLayout>
         <!-- 选择消费类型 -->
 
-        <TextView
-            android:id="@+id/kind"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:clickable="true"
-            android:gravity="right"
-            android:paddingRight="15dp"
-            android:text="@string/kindtest"
-            android:textColor="#EE7942"
-            android:textSize="17sp" />
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="选择类型："
+                android:textColor="#EE7942"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/kind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="right"
+                android:paddingRight="15dp"
+                android:text="@string/kindtest"
+                android:textColor="#EE7942"
+                android:textSize="17sp" />
+        </LinearLayout>
         <!-- 下部主体框 -->
 
         <LinearLayout
@@ -291,10 +317,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
                         android:layout_weight="8"
+                        android:clickable="true"
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
-                        android:text="@string/zq" 
-                        android:clickable="true"/>
+                        android:text="@string/zq" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -345,10 +371,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
                         android:layout_weight="8"
+                        android:clickable="true"
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
-                        android:text="@string/jd" 
-                        android:clickable="true"/>
+                        android:text="@string/jd" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -399,10 +425,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
                         android:layout_weight="8"
+                        android:clickable="true"
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
-                        android:text="@string/zyj" 
-                        android:clickable="true"/>
+                        android:text="@string/zyj" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -590,56 +616,23 @@
         <!-- 确定按钮 -->
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="3px"
             android:layout_weight="1"
-            android:orientation="horizontal" >
+            android:background="#DBDBDB"
+            android:orientation="vertical" >
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
                 android:id="@+id/ok"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:background="@drawable/r"
                 android:gravity="center"
                 android:text="@string/write_this_point"
-                android:textSize="15sp" />
-
-            <Button
-                android:id="@+id/sy"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="2"
-                android:background="@drawable/r"
-                android:gravity="center"
-                android:text="同步"
-                android:textSize="15sp" />
-            <TextView 
-                android:id="@+id/voice"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/r"
-                android:gravity="center"
-                android:text="语音测试"
-                android:textSize="15sp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:textColor="#6959CD"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 

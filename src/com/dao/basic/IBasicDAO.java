@@ -1,4 +1,4 @@
-package com.inteface;
+package com.dao.basic;
 
 public interface IBasicDAO {
 	abstract boolean connectDataBase(String dbName);

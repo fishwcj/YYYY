@@ -7,33 +7,36 @@
     <!-- 标题栏 -->
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#436EEE"
         android:orientation="horizontal" >
 
-        <Button
+        <TextView
             android:id="@+id/back"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/back" />
+            android:clickable="true"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/set"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="5"
             android:gravity="center"
-            android:text="@string/set"
-            android:textColor="@color/blue"
+            android:text="个人中心"
+            android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <!-- 个人图标栏 -->
@@ -42,13 +45,16 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:orientation="horizontal" >
 
-        <TextView
+        <ImageView
+            android:id="@+id/portrait"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:clickable="true"
             android:background="#EE2C2C" />
 
         <LinearLayout
@@ -70,6 +76,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#ABABAB" />
 
             <TextView
@@ -83,18 +91,12 @@
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
-    <!-- 登录其它账号栏 -->
 
     <TextView
-        android:id="@+id/logined"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="1dp"
         android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="登录其它账号"
-        android:textSize="18sp" />
-    <!-- 设置 -->
+        android:background="#ABABAB" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -103,30 +105,77 @@
         android:layout_weight="5"
         android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/budget_set"
-            android:layout_width="fill_parent"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:background="@drawable/button"
-            android:text="@string/budget_set" />
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="通用"
+            android:textColor="#436EEE" />
 
-        <Button
-            android:id="@+id/week_set"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#436EEE" />
+
+        <TextView
+            android:id="@+id/logined"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="登录其它账号" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#ABABAB" />
+
+        <TextView
+            android:id="@+id/changeusername"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:background="@drawable/button"
-            android:text="@string/week_set" />
+            android:paddingLeft="10dp"
+            android:text="修改昵称" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#ABABAB" />
+
+        <TextView
+            android:id="@+id/changepassword"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:text="修改密码" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1" />
     </LinearLayout>
     <!-- 填充栏 -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="15" >
+        android:layout_weight="8" >
     </LinearLayout>
 
 </LinearLayout>

@@ -3,10 +3,12 @@ package com.model.user;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.activity.Index_Activity;
+import com.activity.JZ_Activity;
 import com.dao.User_DAO;
 import com.dao.basic.BasicDAO;
 import com.dao.basic.ForIndexDAO;
-import com.inteface.IBasicDAO;
+import com.dao.basic.IBasicDAO;
 import com.mnitools.NetWorkCommunicate;
 
 public class UserLogin {
@@ -49,10 +51,12 @@ public class UserLogin {
 	public boolean initData(){
 		boolean tag = false;
 		ForIndexDAO.changeLoginUser(id);//打开indexDB修改默认登录用户
+		Index_Activity.indexActivity.finish();
+		JZ_Activity.jzActivity.finish();
 		_basicDAO = new BasicDAO();
 		_basicDAO.connectDataBase("");//参数无用
 		//打开或创建新数据库
-//		User_DAO.init();//清空数据库
+		User_DAO.init();//清空数据库
 		User_DAO.initStream(map.get("stream"));
 		User_DAO.initKind(map.get("kind"));
 		User_DAO.initConsumein(map.get("consumein"));

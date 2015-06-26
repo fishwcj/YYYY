@@ -3,7 +3,7 @@ package com.model.street;
 import com.activity.Publish_Activity;
 import com.activity.Street_Activity;
 import com.bean.StreetMessageBean;
-import com.inteface.INetWork;
+import com.mnitools.INetWork;
 import com.mnitools.NetWorkCommunicate;
 
 import android.content.Intent;

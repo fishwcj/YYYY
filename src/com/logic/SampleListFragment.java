@@ -1,6 +1,7 @@
 package com.logic;
 
 import java.net.MalformedURLException;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.activity.Borrow_Return;
 import com.activity.Count_Activity;
 import com.activity.Index_Activity;
@@ -19,7 +21,9 @@ import com.activity.Street_Activity;
 import com.activity.Target_Activity;
 import com.activity.User_Activity;
 import com.activity.YS1_Activity;
+import com.dao.User_DAO;
 import com.model.cloud.CloudSendHelper;
+import com.model.user.IsLogin;
 import com.yyyy.yyyy.R;
 
 public class SampleListFragment extends Fragment {
@@ -60,6 +64,10 @@ public class SampleListFragment extends Fragment {
 		zq.setOnClickListener(listener);
 		set.setOnClickListener(listener);
 		sy.setOnClickListener(listener);
+		
+		if(IsLogin.isLogin()){
+			person.setText(IsLogin.getId());
+		}
 		return view;
 	}
 
@@ -121,6 +129,8 @@ public class SampleListFragment extends Fragment {
 		try {
 			try {
 				if (cloudSendHelper.checkAndSend()) {
+					String lastSytime = User_DAO.getLastSyTime();
+					sy.setText("上次同步时间：" + lastSytime);
 				} else {
 					Toast.makeText(JZ_Activity.jzActivity, "同步前请登录哦！", Toast.LENGTH_LONG).show();
 				}
@@ -128,8 +138,8 @@ public class SampleListFragment extends Fragment {
 				e.printStackTrace();
 			}
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
 }

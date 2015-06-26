@@ -7,84 +7,98 @@
     <!-- 标题栏 -->
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#436EEE"
         android:orientation="horizontal" >
 
-        <Button
+        <TextView
             android:id="@+id/back"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/back" />
+            android:clickable="true"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/set"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="5"
             android:gravity="center"
-            android:text="@string/set"
-            android:textColor="@color/blue"
+            android:text="用户登录"
+            android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="15sp" />
     </LinearLayout>
     <!-- 动态生成部分 -->
 
     <LinearLayout
-        android:id="@+id/personal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_weight="15"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/radius"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="登录已有账号"
-            android:textSize="20sp" />
+    <EditText
+        android:id="@+id/userid"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:inputType="numberDecimal"
+        android:hint="输入您的ID" />
 
+    <EditText
+        android:id="@+id/userpassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:inputType="numberDecimal"
+        android:hint="输入密码" />
+    <Button 
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="登录"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:background="#0000EE"
+        android:textColor="#FFFFFF"
+        />
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="还没有月月有余账户？试试："
+	    android:textColor="#436EEE"
+	    android:paddingLeft="10dp"
+	    android:layout_marginTop="40dp"
+	    />
         <TextView
             android:id="@+id/get"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:background="@drawable/radius"
+            android:background="#009966"
             android:clickable="true"
             android:gravity="center"
             android:text="一键注册"
+            android:textColor="#FFFFFF"
             android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/budget_set"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/button"
-            android:text="@string/budget_set" />
-
-        <Button
-            android:id="@+id/week_set"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/button"
-            android:text="@string/week_set" />
 
         <TextView
             android:layout_width="match_parent"

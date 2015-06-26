@@ -1,6 +1,6 @@
 package com.activity;
 
-import com.inteface.IInputCheck;
+import com.mnitools.IInputCheck;
 import com.mnitools.InputCheck;
 import com.yyyy.yyyy.R;
 

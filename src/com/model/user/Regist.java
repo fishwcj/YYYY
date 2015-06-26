@@ -4,7 +4,7 @@ import com.activity.Index_Activity;
 import com.activity.User_Activity;
 import com.dao.basic.ForIndexDAO;
 import com.dao.basic.SQLString;
-import com.inteface.INetWork;
+import com.mnitools.INetWork;
 import com.mnitools.NetWorkCommunicate;
 
 import android.content.Intent;

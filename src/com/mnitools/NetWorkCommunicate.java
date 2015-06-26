@@ -16,7 +16,6 @@ import android.os.StrictMode;
 import android.widget.Toast;
 
 import com.activity.JZ_Activity;
-import com.inteface.INetWork;
 
 /**
  * 用于通过HTTP协议进行序列化对象传输

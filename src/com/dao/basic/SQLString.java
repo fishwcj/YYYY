@@ -73,6 +73,10 @@ public class SQLString {
 		return sql;
 	}
 
+	public static String getReadUpdateTime_Sy(){
+		String sql = "select sytime from time";
+		return sql;
+	}
 	/*
 	 * TJ_DAO
 	 */
@@ -264,6 +268,11 @@ public class SQLString {
 	/*
 	 * User_DAO
 	 */
+	public static String getChangUseName(String name){
+		String sql = "update user set name = '" + name + "'";
+		return sql;
+	}
+	
 	public static String getUserId_Us() {
 		String sql = "select id from user";
 		return sql;
@@ -285,25 +294,25 @@ public class SQLString {
 	}
 
 	public static String getInitStream(float comsume, String kind, int id, String date, int inorout) {
-		String sql = "insert into stream values(" + comsume + ",'" + kind + "'," + id + ",'" + date + ","
+		String sql = "insert into stream values(" + comsume + ",'" + kind + "'," + id + ",'" + date + "',"
 				+ inorout + ")";
 		return sql;
 	}
 
 	public static String getInitTablebudget(float budget, int kind, float remain, String month) {
-		String sql = "insert into tablebudget values(" + budget + "," + kind + "," + remain + ",'" + month
-				+ "'";
+		String sql = "insert into tablebudget(budget, kind, remain, month) values(" + budget + "," + kind + "," + remain + ",'" + month
+				+ "')";
 		return sql;
 	}
 
 	public static String getInitTabletotalbudget(float totalbudget, float remain, String month) {
-		String sql = "insert into tabletotalbudget values(" + totalbudget + "," + remain + ",'" + month
+		String sql = "replace into tabletotalbudget values(" + totalbudget + "," + remain + ",'" + month
 				+ "')";
 		return sql;
 	}
 
 	public static String getInitConsumein(float mony, String month) {
-		String sql = "insert into consumein values(" + mony + ",'" + month + "')";
+		String sql = "replace into consumein values(" + mony + ",'" + month + "')";
 		return sql;
 	}
 
@@ -312,14 +321,14 @@ public class SQLString {
 		return sql;
 	}
 
-	public static String getInitKind(int firstid, int secondid, String kindname) {
-		String sql = "insert into kind values(" + firstid + "," + secondid + ",'" + kindname + "')";
+	public static String getInitKind(int id, int firstid, int secondid, String kindname) {
+		String sql = "replace into kind(id,firstid,secondid,kindname) values(" + id + "," + firstid + "," + secondid + ",'" + kindname + "')";
 		return sql;
 	}
 
 	public static String getInitTarget(String name, int time, int lefttime, String content, String tips,
 			String advise) {
-		String sql = "insert into target values ('" + name + "'," + time + "," + lefttime + ",'" + content
+		String sql = "replace into target(name,time,lefttime,content,tips,advise) values ('" + name + "'," + time + "," + lefttime + ",'" + content
 				+ "','" + tips + "','" + advise + "')";
 		return sql;
 	}

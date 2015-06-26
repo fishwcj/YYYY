@@ -91,24 +91,24 @@
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:drawablePadding="2dp"
-                android:drawableTop="@drawable/jz"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/consum"
                 android:gravity="center"
-                android:paddingRight="3dp"
                 android:text="消费" />
         </LinearLayout>
     </LinearLayout>
     <!-- 条形菜单部分 -->
-        <TextView 
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#CCCCCC"
-            />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3" 
-        android:orientation="vertical">
+        android:layout_weight="3"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/zyj"
@@ -142,7 +142,8 @@
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
             android:text="攒钱目标" />
-                <TextView
+
+        <TextView
             android:id="@+id/set"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -157,23 +158,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5" 
-        android:orientation="vertical">
-        <TextView 
+        android:layout_weight="0.5"
+        android:orientation="vertical" >
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#CCCCCC"
-            />
-                <TextView
+            android:background="#CCCCCC" />
+
+        <TextView
             android:id="@+id/tb"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="7dp"
             android:drawableLeft="@drawable/set"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
-            android:text="上次同步时间" />
+            android:text="上次同步时间 :未同步" />
     </LinearLayout>
 
 </LinearLayout>

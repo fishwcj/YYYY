@@ -1,4 +1,4 @@
-package com.inteface;
+package com.model.count;
 
 
 public interface Chart {

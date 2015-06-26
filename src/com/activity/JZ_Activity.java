@@ -12,6 +12,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
@@ -36,8 +37,8 @@ import com.baidu.speech.VoiceRecognitionService;
 import com.bean.Constant;
 import com.dao.JZ_DAO;
 import com.dao.YS_DAO;
-import com.inteface.IInputCheck;
 import com.logic.BackgroundColor;
+import com.mnitools.IInputCheck;
 import com.mnitools.InputCheck;
 import com.mnitools.VoiceString;
 import com.model.cloud.CloudSendHelper;
@@ -58,11 +59,11 @@ public class JZ_Activity extends FragmentActivity implements RecognitionListener
 	private Button number_8;
 	private Button number_9;
 	private Button number_0;
-	private Button syButton; // 测试按钮
+//	private Button syButton; // 测试按钮
 	private TextView number_in;
 	private TextView number_out;
-	private TextView voice;
-	private Button button_ok;
+//	private TextView voice;
+	private TextView button_ok;
 	private Button number_float;
 	private Button number_clear;
 	public static String consumString = "";
@@ -133,16 +134,16 @@ public class JZ_Activity extends FragmentActivity implements RecognitionListener
 		number_out = (TextView) this.findViewById(R.id.button_out);
 		number_float = (Button) this.findViewById(R.id.number_float);
 		number_clear = (Button) this.findViewById(R.id.number_clear);
-		button_ok = (Button) this.findViewById(R.id.ok);
+		button_ok = (TextView) this.findViewById(R.id.ok);
 		consumed = (TextView) this.findViewById(R.id.comsumed);
 		linearLayout = (LinearLayout) this.findViewById(R.id.background);
 		zyj = (TextView) this.findViewById(R.id.zyj);
 		zq = (TextView) this.findViewById(R.id.zq);
 		jd = (TextView) this.findViewById(R.id.jd);
 		// 测试按钮
-		syButton = (Button) this.findViewById(R.id.sy);
+//		syButton = (Button) this.findViewById(R.id.sy);
 		kind = (TextView) this.findViewById(R.id.kind);
-		voice = (TextView) this.findViewById(R.id.voice);
+//		voice = (TextView) this.findViewById(R.id.voice);
 
 		kindList.add("酒足饭饱");
 		kindList.add("穿金戴银");
@@ -177,40 +178,40 @@ public class JZ_Activity extends FragmentActivity implements RecognitionListener
 		/**
 		 * 语音
 		 */
-		voice.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(JZ_Activity.this);
-				boolean api = sp.getBoolean("api", false);
-				if (api) {
-					switch (status) {
-					case STATUS_None:
-						start();
-						status = STATUS_WaitingReady;
-						break;
-					case STATUS_WaitingReady:
-						cancel();
-						status = STATUS_None;
-						break;
-					case STATUS_Ready:
-						cancel();
-						status = STATUS_None;
-						break;
-					case STATUS_Speaking:
-						stop();
-						status = STATUS_Recognition;
-						break;
-					case STATUS_Recognition:
-						cancel();
-						status = STATUS_None;
-						break;
-					}
-				} else {
-					start();
-				}
-			}
-		});
+//		voice.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(JZ_Activity.this);
+//				boolean api = sp.getBoolean("api", false);
+//				if (api) {
+//					switch (status) {
+//					case STATUS_None:
+//						start();
+//						status = STATUS_WaitingReady;
+//						break;
+//					case STATUS_WaitingReady:
+//						cancel();
+//						status = STATUS_None;
+//						break;
+//					case STATUS_Ready:
+//						cancel();
+//						status = STATUS_None;
+//						break;
+//					case STATUS_Speaking:
+//						stop();
+//						status = STATUS_Recognition;
+//						break;
+//					case STATUS_Recognition:
+//						cancel();
+//						status = STATUS_None;
+//						break;
+//					}
+//				} else {
+//					start();
+//				}
+//			}
+//		});
 
 		/**
 		 * 借贷管理
@@ -220,7 +221,7 @@ public class JZ_Activity extends FragmentActivity implements RecognitionListener
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.setClass(JZ_Activity.this, Borrow_Return.class);
+				intent.setClass(JZ_Activity.this, Acount_Activity.class);
 				startActivity(intent);
 			}
 		});
@@ -254,30 +255,28 @@ public class JZ_Activity extends FragmentActivity implements RecognitionListener
 		/**
 		 * 测试同步按钮
 		 */
-		syButton.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				CloudSendHelper cloudSendHelper = new CloudSendHelper();
-				try {
-					try {
-						if (cloudSendHelper.checkAndSend()) {
-							// Toast.makeText(JZ_Activity.jzActivity, "同步成功!",
-							// Toast.LENGTH_LONG).show();
-						} else {
-							Toast.makeText(JZ_Activity.jzActivity, "同步前请登录哦！", Toast.LENGTH_LONG).show();
-						}
-					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
+//		syButton.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				CloudSendHelper cloudSendHelper = new CloudSendHelper();
+//				try {
+//					try {
+//						if (cloudSendHelper.checkAndSend()) {
+//						} else {
+//							Toast.makeText(JZ_Activity.jzActivity, "同步前请登录哦！", Toast.LENGTH_LONG).show();
+//						}
+//					} catch (ClassNotFoundException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				} catch (MalformedURLException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//		});
 		/**
 		 * 点击类型事件
 		 */

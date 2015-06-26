@@ -2,7 +2,6 @@ package com.mnitools;
 
 import android.view.View;
 import android.widget.TextView;
-import com.inteface.IInputCheck;
 
 public class InputCheck implements IInputCheck {
 

@@ -2,7 +2,7 @@ package com.model.street;
 
 import com.bean.CommentBean;
 import com.bean.CommentBeanList;
-import com.inteface.INetWork;
+import com.mnitools.INetWork;
 import com.mnitools.NetWorkCommunicate;
 
 public class CommentBehavior {

@@ -1,4 +1,4 @@
-package com.inteface;
+package com.mnitools;
 
 import java.io.Serializable;
 

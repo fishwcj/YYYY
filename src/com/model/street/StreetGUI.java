@@ -1,5 +1,7 @@
 package com.model.street;
 
+import java.util.ArrayList;
+
 import com.activity.Comment_Activity;
 import com.activity.Street_Activity;
 import com.bean.CommentBean;
@@ -8,9 +10,12 @@ import com.yyyy.yyyy.R;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -37,6 +42,9 @@ public class StreetGUI {
 			((TextView)view.findViewById(R.id.name)).setText(message.getUserName());//设置昵称
 			((TextView)view.findViewById(R.id.message)).setText(message.getMessage());//设置消息体
 			((TextView)view.findViewById(R.id.address)).setText(message.getAddress());//设置地址
+			LinearLayout imglinearLayout = (LinearLayout)view.findViewById(R.id.img);
+			ArrayList<byte[]> imgbyte;
+			imgbyte = message.getImglist();
 			int commentsNumber = message.getComments();
 			String commentsString = "评论(" + commentsNumber + ")";
 			TextView commentsTextView = (TextView)view.findViewById(R.id.comments);
@@ -52,6 +60,18 @@ public class StreetGUI {
 					Street_Activity.street_Activity.startActivity(intent);
 				}
 			});
+			
+			//显示图片
+			if(imgbyte != null && imgbyte.size() != 0){
+				for(int i = 0; i < imgbyte.size(); i++){
+					byte[]byte1 = imgbyte.get(i);
+					Bitmap bitmap = BitmapFactory.decodeByteArray(byte1, 0, byte1.length);
+					LinearLayout linearLayout = (LinearLayout)inflater.inflate(R.layout.img_template, null);
+					ImageView imgView = (ImageView)linearLayout.getChildAt(0);
+					imgView.setImageBitmap(bitmap);
+					imglinearLayout.addView(linearLayout);
+				}
+			}
 			linearLayout.addView(view);
 	}
 	

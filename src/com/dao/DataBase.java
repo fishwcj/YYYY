@@ -43,7 +43,7 @@ public class DataBase extends SQLiteOpenHelper {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
 		currentString = format.format(new Date());
 
-		// 测试表2流水表：包括 消费、类型、时间
+		// 测试表2流水表：包括 消费、类型、时间//注：id表示类别
 		db.execSQL("create table stream(consume float, kind varchar(20), id int, date datetime, inorout int)");
 		// 测试表3预算表
 		String sql = "create table tablebudget(id integer primary key autoincrement,budget float, kind int, remain float, month date)";
@@ -205,7 +205,7 @@ public class DataBase extends SQLiteOpenHelper {
 		db.execSQL(sql);
 		
 		// 测试表6 用户表 tag为0代表未登录（未注册状态）
-		sql = "create table user(id varchar(10), name varchar(20), tag int)";
+		sql = "create table user(id varchar(10) primary key, name varchar(20), tag int)";
 		db.execSQL(sql);
 		sql = "insert into user values ('null','某攒友',0)";
 		db.execSQL(sql);

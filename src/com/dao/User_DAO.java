@@ -29,6 +29,11 @@ public class User_DAO {
 		return IsLogin.isLogin();
 	}
 	
+	public static void changeUserName(String name){
+		String sql = SQLString.getChangUseName(name);
+		Index_Activity.basicDAO.update(sql);
+	}
+	
 	public static Cursor getAllMessages(){
 		String sql = SQLString.getALLMessages_Us();
 		Cursor cursor = (Cursor)Index_Activity.basicDAO.selectCursor(sql);
@@ -46,7 +51,9 @@ public class User_DAO {
 		Iterator<HashMap<String, String>> iterator = list.iterator();
 		while(iterator.hasNext()){
 			HashMap<String, String> map = iterator.next();
-			String sql = SQLString.getInitStream(Float.parseFloat(map.get("consume")), map.get("kind"),Integer.parseInt(map.get("id")),map.get("date"),Integer.parseInt(map.get("inorout")));
+//			String sql = SQLString.getInitStream(Float.parseFloat(map.get("consume")), map.get("kind"),Integer.parseInt(map.get("id")),map.get("date"),Integer.parseInt(map.get("inorout")));
+//			String month = map.get("date").replace(".0", "");
+			String sql = SQLString.getInitStream(Float.parseFloat(map.get("consume")), map.get("kind"),1,map.get("date"),Integer.parseInt(map.get("inorout")));
 			UserLogin._basicDAO.insert(sql);
 		}
 	}
@@ -56,7 +63,9 @@ public class User_DAO {
 		Iterator<HashMap<String, String>> iterator = list.iterator();
 		while(iterator.hasNext()){
 			HashMap<String, String> map = iterator.next();
-			String sql = SQLString.getInitTablebudget(Float.parseFloat(map.get("budget")), Integer.parseInt(map.get("kind")), Float.parseFloat(map.get("remain")), map.get("month"));
+			String month = map.get("month").replace("-01", "");
+			String sql = SQLString.getInitTablebudget(Float.parseFloat(map.get("budget")), Integer.parseInt(map.get("kind")), Float.parseFloat(map.get("remain")), month);
+			System.out.println("分类预算初始化：" + sql);
 			UserLogin._basicDAO.insert(sql);
 		}
 	}
@@ -66,7 +75,9 @@ public class User_DAO {
 		Iterator<HashMap<String, String>> iterator = list.iterator();
 		while(iterator.hasNext()){
 			HashMap<String, String> map = iterator.next();
-			String sql = SQLString.getInitTabletotalbudget(Float.parseFloat(map.get("totalbudget")), Float.parseFloat(map.get("remain")), map.get("month"));
+			String month = map.get("month").replace("-01", "");
+			String sql = SQLString.getInitTabletotalbudget(Float.parseFloat(map.get("totalbudget")), Float.parseFloat(map.get("remain")), month);
+			System.out.println("执行了总预算初始化：" + sql);
 			UserLogin._basicDAO.insert(sql);
 		}
 	}
@@ -96,7 +107,7 @@ public class User_DAO {
 		Iterator<HashMap<String, String>> iterator = list.iterator();
 		while(iterator.hasNext()){
 			HashMap<String, String> map = iterator.next();
-			String sql = SQLString.getInitKind(Integer.parseInt(map.get("firstid")), Integer.parseInt(map.get("secondid")), map.get("kindname"));
+			String sql = SQLString.getInitKind(Integer.parseInt(map.get("id")),Integer.parseInt(map.get("firstid")), Integer.parseInt(map.get("secondid")), map.get("kindname"));
 			UserLogin._basicDAO.insert(sql);
 		}
 	}
@@ -120,5 +131,10 @@ public class User_DAO {
 			String sql = SQLString.getInitUser(map.get("id"), map.get("name"));
 			UserLogin._basicDAO.insert(sql);
 		}
+	}
+	
+	public static String getLastSyTime(){
+		String sql = SQLString.getReadUpdateTime_Sy();
+		return Index_Activity.basicDAO.selectString(sql);
 	}
 }

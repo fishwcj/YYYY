@@ -3,7 +3,6 @@ package com.dao.basic;
 import com.activity.Index_Activity;
 import com.dao.DataBase;
 import com.dao.UserDataBase;
-import com.inteface.IBasicDAO;
 
 import android.database.Cursor;
 /**
@@ -64,7 +63,7 @@ public class BasicDAO implements IBasicDAO {
 		int result = 0;
 		if (isConnect()) {
 			Cursor cursor = db.rawQuery(sql, null);
-			if (cursor.moveToNext()) {
+			if (cursor.moveToLast()) {
 				result = cursor.getInt(0);
 			}
 		} else {
